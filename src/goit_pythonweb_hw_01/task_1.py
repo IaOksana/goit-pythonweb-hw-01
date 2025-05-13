@@ -5,14 +5,7 @@
 # Наразі, щоб створити новий транспортний засіб, ми просто створюємо екземпляр відповідного класу з вказаними маркою (make) та моделлю (model).
 
 from abc import ABC, abstractmethod
-import logging
-
-# init logger
-logging.basicConfig(
-    format="%(asctime)s %(message)s",
-    level=logging.INFO,
-    handlers=[logging.FileHandler("task_1.log"), logging.StreamHandler()],
-)
+from log import info
 
 
 # 1. Створити абстрактний базовий клас Vehicle з методом start_engine()
@@ -32,13 +25,13 @@ class Vehicle(ABC):
 class Car(Vehicle):
     def start_engine(self):
         str = f"{self.make} {self.model} {self.spec}: Engine is run"
-        logging.info(str)
+        info(str)
 
 
 class Motorcycle(Vehicle):
     def start_engine(self):
         str = f"{self.make} {self.model}{self.spec}: Engine is started"
-        logging.info(str)
+        info(str)
 
 
 # 3. Створити абстрактний клас VehicleFactory з методами create_car() та create_motorcycle()

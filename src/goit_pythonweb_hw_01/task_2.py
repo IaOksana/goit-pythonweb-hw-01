@@ -6,6 +6,7 @@
 """
 
 from abc import ABC, abstractmethod
+from log import info
 
 
 # Щоб виконати принцип єдиної відповідальності (SRP), створіть клас Book, який відповідатиме за зберігання інформації про книгу.
@@ -16,7 +17,7 @@ class Book:
         self.year = year
 
     def show(self):
-        print(f"Title: {self.title}, Author: {self.author}, Year: {self.year}")
+        info(f"Title: {self.title}, Author: {self.author}, Year: {self.year}")
 
     def get_title(self):
         return self.title
@@ -98,7 +99,7 @@ def main():
             case "exit":
                 break
             case _:
-                print("Invalid command. Please try again.")
+                info("Invalid command. Please try again.")
 
 
 if __name__ == "__main__":
